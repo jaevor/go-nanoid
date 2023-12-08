@@ -283,7 +283,7 @@ func ASCII(length int) (generator, error) {
 		}
 
 		for i := 0; i < length; i++ {
-			id[i] = asciiAlphabet[b[i+offset]&90]
+			id[i] = asciiAlphabet[b[i+offset]&89]
 		}
 
 		offset += length
