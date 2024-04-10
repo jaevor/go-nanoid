@@ -6,12 +6,12 @@
 [![Go Version](https://img.shields.io/github/go-mod/go-version/jaevor/go-nanoid?label=Go)](https://github.com/jaevor/go-nanoid/blob/master/go.mod)
 [![Go Ref](https://pkg.go.dev/badge/github.com/jaevor/go-nanoid)](https://pkg.go.dev/github.com/jaevor/go-nanoid)
 
-[This module](https://pkg.go.dev/github.com/jaevor/go-nanoid) is a Go implementation of [ai/nanoid](https://github.com/ai/nanoid).
+[This module](https://pkg.go.dev/github.com/jaevor/go-nanoid) is a Go
+implementation of [ai/nanoid](https://github.com/ai/nanoid).
 
 ```
 go get github.com/jaevor/go-nanoid
 ```
-
 
 ```go
 import (
@@ -40,11 +40,17 @@ func main() {
 }
 ```
 
+# Note
+
+This module's functions use an internal buffered slice of random bytes, and thus
+also a mutex. This slight overhead of memory allows it to be very efficient, but
+may not be ideal if you are only generating an ID every now and then.
+
 # Security
 
-* [Comparison of Nano ID and UUID (V4)](https://github.com/ai/nanoid/blob/main/README.md#comparison-with-uuid)
-* [NanoID collision calculator](https://zelark.github.io/nano-id-cc/)
-* [More](https://github.com/ai/nanoid/blob/main/README.md)
+- [Comparison of Nano ID and UUID (V4)](https://github.com/ai/nanoid/blob/main/README.md#comparison-with-uuid)
+- [NanoID collision calculator](https://zelark.github.io/nano-id-cc/)
+- [More](https://github.com/ai/nanoid/blob/main/README.md)
 
 ## Benchmarks
 
