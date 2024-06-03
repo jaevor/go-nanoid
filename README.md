@@ -20,13 +20,12 @@ import (
 )
 
 func main() {
-	// The canonic NanoID is nanoid.Standard(21).
-	canonicID, err := nanoid.Standard(21)
+	gen, err := nanoid.Canonic()
 	if err != nil {
 		panic(err)
 	}
 
-	id1 := canonicID()
+	id1 := gen()
 	log.Printf("ID 1: %s", id1) // eLySUP3NTA48paA9mLK3V
 
 	// Makes sense to use CustomASCII since 0-9 is ASCII.
@@ -43,8 +42,9 @@ func main() {
 # Note
 
 This module's functions use an internal buffered slice of random bytes, and thus
-also a mutex. This slight overhead of memory allows it to be very efficient, but
-may not be ideal if you are only generating an ID every now and then.
+also a mutex. This slight (but constant) overhead of memory per generator allows
+it to be very efficient, but may not be ideal if you are only generating an ID
+every now and then.
 
 # Security
 
