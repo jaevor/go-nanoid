@@ -125,6 +125,9 @@ func CustomUnicode(alphabet string, length int) (generator, error) {
 	clz := bits.LeadingZeros32(x | 1)
 	mask := (2 << (31 - clz)) - 1
 	step := (length / 5) * 8
+	if step < length {
+		step = length
+	}
 
 	b := make([]byte, step)
 	id := make([]rune, length)
@@ -190,6 +193,9 @@ func CustomASCII(alphabet string, length int) (generator, error) {
 	clz := bits.LeadingZeros32(x | 1)
 	mask := (2 << (31 - clz)) - 1
 	step := (length / 5) * 8
+	if step < length {
+		step = length
+	}
 
 	b := make([]byte, step)
 	id := make([]byte, length)
